@@ -1,3 +1,5 @@
+import Mail from '../lib/Mail';
+
 export default {
     async store(req, res) {
         console.log(req.body)
@@ -8,7 +10,12 @@ export default {
             name
         }
 
-        // envia o usuário para o banco de dados
+        await Mail.sendMail({
+            from: 'Queue Test <queue@queuetest.com>',
+            to: `${name} <${email}>`,
+            subject: 'Cadastro de usuário',
+            html: `Olá, ${name}, bem vindo ao sistema de filas!`
+        });
 
         return res.json(user);
     }
