@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/server.js"
+    "dev:server": "nodemon src/server.js",
+    "dev:queue": "nodemon src/queue.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/JrSchmidtt/background-jobs#readme",
   "dependencies": {
+    "bull": "^4.10.2",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "nodemailer": "^6.8.0"
